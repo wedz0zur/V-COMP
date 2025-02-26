@@ -80,6 +80,7 @@
         </div>
       </div>
     </section>
+    <h2 style="margin-top: 46px; margin-bottom: 24px; margin-left: 10%;">Топ продаж</h2>
 </template>
 
 <script>
@@ -96,6 +97,8 @@ export default{
   height: 556px;
   display: flex;
   justify-content: space-between;
+  padding-left: 10%; 
+  padding-right: 10%;
 }
 
 .section-1-list {

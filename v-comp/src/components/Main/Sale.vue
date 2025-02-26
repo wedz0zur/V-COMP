@@ -1,19 +1,20 @@
 <template>
-  <h2 style="margin-top: 46px; margin-bottom: 24px">Топ продаж</h2>
-  <div class="top-sales">
-    <div class="sale" v-for="item in sales" :key="item.name">
-      <img class="sale-img" :src="item.image" alt="" />
-      <p class="sale-info">{{ item.name }}</p>
-      <p class="sale-reviews">Отзывов: {{ item.reviews }}</p>
-      <div style="display: flex; align-items: center">
-        <p class="sale-price">
-          {{ item.price }}<span class="sale-price-mini">₽</span>
-        </p>
-        <button class="sale-buy">КУПИТЬ</button>
+  <section>
+    <div class="top-sales">
+      <div class="sale" v-for="item in sales" :key="item.name">
+        <img class="sale-img" :src="item.image" alt="" />
+        <p class="sale-info">{{ item.name }}</p>
+        <p class="sale-reviews">Отзывов: {{ item.reviews }}</p>
+        <div style="display: flex; align-items: center">
+          <p class="sale-price">
+            {{ item.price }}<span class="sale-price-mini">₽</span>
+          </p>
+          <button class="sale-buy">КУПИТЬ</button>
+        </div>
       </div>
+      <a href="#" class="main-products">Смотреть все товары ></a>
     </div>
-    <a href="#" class="main-products">Смотреть все продукты ></a>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -113,8 +114,13 @@ export default {
 </script>
 
 <style scoped>
+section{
+  padding-left: 10%; 
+  padding-right: 10%;
+}
+
 .top-sales {
-  height: 390px;
+  height: 780px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

@@ -1,25 +1,30 @@
 <template>
   <main>
-    <SectionTop/>
-    <Sale/>
+    <SectionTop />
+    <Sale />
+    <GameZone />
+    <Links/>
   </main>
 </template>
 
 <script>
-import SectionTop from './SectionTop.vue';
-import Sale from './Sale.vue';
+import SectionTop from "./SectionTop.vue";
+import Sale from "./Sale.vue";
+import GameZone from "./GameZone.vue";
+import Links from './Links.vue'
+
 export default {
-  name: "main",
+  name: "MainComponent",
   components: {
-    SectionTop, 
+    SectionTop,
     Sale,
+    GameZone,
+    Links,
   },
-  
 };
 </script>
 <style scoped>
 main {
-  padding: 32px 10% 0 10%;
+  padding-top: 32px;
 }
-
 </style>
