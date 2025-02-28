@@ -118,6 +118,11 @@ export default{
   cursor: pointer;
 }
 
+.section-1-list:hover{
+  background-color: #F4F8FB;
+  transition: 0.5ms;
+}
+
 .section-1-list-img {
   width: 16px;
   height: 22px;

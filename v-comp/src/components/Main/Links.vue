@@ -189,6 +189,7 @@ export default {
     display: flex;
     justify-content: space-between;
     box-shadow: 1px 0px 20px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
 
 .user {

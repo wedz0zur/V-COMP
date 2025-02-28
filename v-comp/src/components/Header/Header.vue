@@ -1,62 +1,91 @@
 <template>
     <header>
-        <div class="header_nav_prof">
-            <div class="header-nav">
-                <div class="burger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <a href="#">Акции</a>
-                <a href="#">Кредит</a>
-                <a href="#">Оплата и доставка</a>
-                <a href="#">Помощь</a>
-                <a href="#">Скупка Б/У</a>
-                <a href="#">Контакты</a>
-            </div>
+      <div class="header_nav_prof">
+        <div class="header-nav">
+          <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <a href="#">Акции</a>
+          <a href="#">Кредит</a>
+          <a href="#">Оплата и доставка</a>
+          <a href="#">Помощь</a>
+          <a href="#">Скупка Б/У</a>
+          <a href="#">Контакты</a>
+        </div>
+        <div class="profile-info">
+          <router-link :to="{ name: 'registration' }">
             <img class="profile" src="./Header_img/Shape.svg" alt="">
+          </router-link>
+          <span v-if="userPhone" class="user-phone">{{ userPhone }}</span>
         </div>
-        <div class="header_search">
-            <a href="#">
-                <img class="v-comp-svg" src="./Header_img/Logo.svg" alt="">
-            </a>
-            <button class="catalog-green">КАТАЛОГ ТОВАРОВ <img src="./Header_img/Frame 7779.svg" class="catalog-gr"
-                    alt=""></button>
-            <div class="input-group">
-                <div class="form-outline" data-mdb-input-init>
-                    <input type="search" id="form1" class="form-control" />
-                    <label class="form-label" for="form1">Поиск</label>
-                </div>
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-                    <i class="fas fa-search"><img src="./Header_img/vector.svg" alt=""></i>
-                </button>
-            </div>
-            <div class="header-last">
-                <div class="favourites"></div>
-                <div class="basket"></div>
-            </div>
+      </div>
+      <div class="header_search">
+        <router-link :to="{ name: 'home' }">
+          <img class="v-comp-svg" src="./Header_img/Logo.svg" alt="">
+        </router-link>
+        <button class="catalog-green">
+          КАТАЛОГ ТОВАРОВ <img src="./Header_img/Frame 7779.svg" class="catalog-gr" alt="">
+        </button>
+        <div class="input-group">
+          <div class="form-outline" data-mdb-input-init>
+            <input type="search" id="form1" class="form-control" />
+            <label class="form-label" for="form1">Поиск</label>
+          </div>
+          <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+            <i class="fas fa-search"><img src="./Header_img/vector.svg" alt=""></i>
+          </button>
         </div>
+        <div class="header-last">
+          <div class="favourites"></div>
+          <div class="basket"></div>
+        </div>
+      </div>
     </header>
-</template>
-
-<script>
-import { Input, Ripple, initMDB } from "mdb-ui-kit";    
-import "mdb-ui-kit/css/mdb.min.css";
-import "mdb-ui-kit/js/mdb.es.min.js";
-
-export default {
+  </template>
+  
+  <script>
+  import { Input, Ripple, initMDB } from "mdb-ui-kit";    
+  import "mdb-ui-kit/css/mdb.min.css";
+  import "mdb-ui-kit/js/mdb.es.min.js";
+  
+  export default {
     name: "header",
+    data() {
+      return {
+        userPhone: null, 
+      };
+    },
     mounted() {
-        initMDB({ Input, Ripple });
+      initMDB({ Input, Ripple });
+      this.loadUserData();
+    },
+    methods: {
+      loadUserData() {
+        const userData = JSON.parse(localStorage.getItem("users"));
+        if (userData && userData.phone) {
+          this.userPhone = userData.phone; 
+        }
+      }
     }
-}
-</script>
+  };
+  </script>
+  
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 header{
     box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
+}
+.user-phone{
+    font-family: Lato;
+font-weight: 500;
+font-size: 14px;
+line-height: 12px;
+letter-spacing: 0%;
+color: #F4F8FB;
 }
 
 .header_nav_prof {
