@@ -4,12 +4,18 @@ import App from './App.vue'
 import Home from './components/Home.vue';
 import Registration from './components/registration/Registration.vue'
 import Login from './components/registration/Login.vue';
+import Test from './components/Test.vue';
 
 const router = createRouter({
     routes: [
       {
         path: "/",
         redirect: "/home", 
+      },
+      {
+        path: "/test",
+        name: "test", 
+        component: Test,
       },
       {
         path: "/home",

@@ -1,196 +1,459 @@
 <template>
-    <header>
-      <div class="header_nav_prof">
-        <div class="header-nav">
-          <div class="burger">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <a href="#">Акции</a>
-          <a href="#">Кредит</a>
-          <a href="#">Оплата и доставка</a>
-          <a href="#">Помощь</a>
-          <a href="#">Скупка Б/У</a>
-          <a href="#">Контакты</a>
+  <header>
+    <div class="header_nav_prof">
+      <div class="header-nav">
+        <div style="padding: 30px; margin-left: -80px">
+          <transition name="slide">
+            <section v-if="menu" class="burger-menu">
+              <div class="logo">
+                <router-link :to="{ name: 'home' }"
+                  ><img
+                    class="footer_img"
+                    src="../footer/footer_img/footer-img.svg"
+                    alt=""
+                /></router-link>
+                <button @click="menu = false" class="close-button">✖</button>
+              </div>
+              <div class="menu-header">
+                <router-link to="/login">Войти</router-link>
+                <span style="margin-top: 5px">|</span>
+                <router-link style="margin-top: 3px" to="/registration"
+                  >Регистрация</router-link
+                >
+              </div>
+
+              <div class="menu-content">
+                <h3
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 16px;
+                  "
+                >
+                  Информация
+                  <span @click="toggleSubmenu('list1')" class="arrow">{{
+                    list1 ? "🡩" : "🡫"
+                  }}</span>
+                </h3>
+                <div v-if="list1" class="submenu">
+                  <a class="aw" href="#">Акции</a>
+                  <a class="aw" href="#">Кредит</a>
+                  <a class="aw" href="#">Оплата и доставка</a>
+                  <a class="aw" href="#">Гарантия</a>
+                  <a class="aw" href="#">Частые вопросы</a>
+                  <a class="aw" href="#">Новости</a>
+                  <a class="aw" href="#">Блог</a>
+                  <a class="aw" href="#">О нас</a>
+                  <a class="aw" href="#">Политика конфиденциальности</a>
+                  <a class="aw" href="#">Контакты</a>
+                </div>
+
+                <h3
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 16px;
+                  "
+                >
+                  Наши сервисы
+                  <span @click="toggleSubmenu('list2')" class="arrow">{{
+                    list2 ? "🡩" : "🡫"
+                  }}</span>
+                </h3>
+                <div v-if="list2" class="submenu">
+                  <a class="aw" href="#">Сервисный центр v-comp</a>
+                  <a class="aw" href="#">Магазин Б/У товара</a>
+                  <a class="aw" href="#">Скупка Б/У</a>
+                  <a class="aw" href="#">Ремонт ПК и оргтехники</a>
+                  <a class="aw" href="#">Компьютерная помощь</a>
+                  <a class="aw" href="#">Сотрудничество</a>
+                  <a class="aw" href="#">Главная</a>
+                </div>
+
+                <h3 style="margin-bottom: 16px">Контакты</h3>
+                <p class="pw">(067) 11-12-485 - Отдел продаж</p>
+                <p class="pw">(066) 484-39-22 - Отдел продаж</p>
+                <p class="pw">Днепр, Европейская, 8 (бывшая Миронова 8)</p>
+                <p class="pw">Понедельник-Пятница 9:00-19:00</p>
+                <p class="pw">Суббота-Воскресенье: с 9:00-16:00</p>
+              </div>
+
+              <h3>Следите за нами</h3>
+              <div class="icons">
+                <div class="icon1"></div>
+                <div class="icon2"></div>
+                <div class="icon3"></div>
+                <div class="icon4"></div>
+              </div>
+            </section>
+          </transition>
         </div>
-        <div class="profile-info">
-          <router-link :to="{ name: 'registration' }">
-            <img class="profile" src="./Header_img/Shape.svg" alt="">
-          </router-link>
-          <span v-if="userPhone" class="user-phone">{{ userPhone }}</span>
+        <div class="burger" @click="menu = !menu">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+
+        <a href="#">Акции</a>
+        <a href="#">Кредит</a>
+        <a href="#">Оплата и доставка</a>
+        <a href="#">Помощь</a>
+        <a href="#">Скупка Б/У</a>
+        <a href="#">Контакты</a>
       </div>
-      <div class="header_search">
-        <router-link :to="{ name: 'home' }">
-          <img class="v-comp-svg" src="./Header_img/Logo.svg" alt="">
+      <div class="profile-info">
+        <router-link :to="{ name: 'registration' }">
+          <img class="profile" src="./Header_img/Shape.svg" alt="" />
         </router-link>
-        <button class="catalog-green">
-          КАТАЛОГ ТОВАРОВ <img src="./Header_img/Frame 7779.svg" class="catalog-gr" alt="">
-        </button>
-        <div class="input-group">
-          <div class="form-outline" data-mdb-input-init>
-            <input type="search" id="form1" class="form-control" />
-            <label class="form-label" for="form1">Поиск</label>
-          </div>
-          <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-            <i class="fas fa-search"><img src="./Header_img/vector.svg" alt=""></i>
-          </button>
-        </div>
-        <div class="header-last">
-          <div class="favourites"></div>
-          <div class="basket"></div>
-        </div>
+        <span v-if="userPhone" class="user-phone">{{ userPhone }}</span>
       </div>
-    </header>
-  </template>
-  
-  <script>
-  import { Input, Ripple, initMDB } from "mdb-ui-kit";    
-  import "mdb-ui-kit/css/mdb.min.css";
-  import "mdb-ui-kit/js/mdb.es.min.js";
-  
-  export default {
-    name: "header",
-    data() {
-      return {
-        userPhone: null, 
-      };
-    },
-    mounted() {
-      initMDB({ Input, Ripple });
-      this.loadUserData();
-    },
-    methods: {
-      loadUserData() {
-        const userData = JSON.parse(localStorage.getItem("users"));
-        if (userData && userData.phone) {
-          this.userPhone = userData.phone; 
-        }
+    </div>
+    <div class="header_search">
+      <router-link :to="{ name: 'home' }">
+        <img class="v-comp-svg" src="./Header_img/Logo.svg" alt="" />
+      </router-link>
+      <button class="catalog-green">
+        КАТАЛОГ ТОВАРОВ
+        <img src="./Header_img/Frame 7779.svg" class="catalog-gr" alt="" />
+      </button>
+      <div class="input-group">
+        <div class="form-outline" data-mdb-input-init>
+          <input type="search" id="form1" class="form-control" />
+          <label class="form-label" for="form1">Поиск</label>
+        </div>
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+          <i class="fas fa-search"
+            ><img src="./Header_img/vector.svg" alt=""
+          /></i>
+        </button>
+      </div>
+      <div class="header-last">
+        <div class="favourites"></div>
+        <div class="basket"></div>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script>
+import { Input, Ripple, initMDB } from "mdb-ui-kit";
+import "mdb-ui-kit/css/mdb.min.css";
+import "mdb-ui-kit/js/mdb.es.min.js";
+
+export default {
+  name: "header",
+  data() {
+    return {
+      userPhone: null,
+      menu: false,
+      list1: false,
+      list2: false,
+    };
+  },
+  mounted() {
+    initMDB({ Input, Ripple });
+    this.loadUserData();
+  },
+  methods: {
+    loadUserData() {
+      const userData = JSON.parse(localStorage.getItem("users"));
+      if (userData && userData.phone) {
+        this.userPhone = userData.phone;
       }
-    }
-  };
-  </script>
-  
+    },
+    toggleSubmenu(list) {
+      if (list === "list1") {
+        this.list1 = !this.list1;
+      } else if (list === "list2") {
+        this.list2 = !this.list2;
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
-header{
-    box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
+header {
+  box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
 }
-.user-phone{
-    font-family: Lato;
-font-weight: 500;
-font-size: 14px;
-line-height: 12px;
-letter-spacing: 0%;
-color: #F4F8FB;
+.user-phone {
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 12px;
+  letter-spacing: 0%;
+  color: #f4f8fb;
 }
 
 .header_nav_prof {
-    height: 40px;
-    padding: 0 10% 0 10%;
-    background-color: #060F42;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  height: 40px;
+  padding: 0 10% 0 10%;
+  background-color: #060f42;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-nav {
-    width: 460px;
-    height: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 460px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-nav a {
-    font-family: Lato;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 12px;
-    color: #F4F8FB;
-    text-decoration: none;
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 12px;
+  color: #f4f8fb;
+  text-decoration: none;
 }
 
 .burger {
-    width: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
 }
 
 .burger div {
-    width: 20px;
-    height: 2px;
-    background-color: white;
+  width: 20px;
+  height: 2px;
+  background-color: white;
 }
 
 .profile {
-    width: 24;
-    height: 24;
-    cursor: pointer;
+  width: 24;
+  height: 24;
+  cursor: pointer;
 }
 
 .header_search {
-    height: 97px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10% 0 10%;
+  height: 97px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10% 0 10%;
 }
 
 .catalog-gr {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .catalog-green {
-    width: 173px;
-    height: 42px;
-    gap: 8px;
-    border: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 4px;
-    background-color: #06A56C;
-    font-family: Lato;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 12px;
-    letter-spacing: 0%;
-    color: #F4F8FB;
-    cursor: pointer;
+  width: 173px;
+  height: 42px;
+  gap: 8px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 4px;
+  background-color: #06a56c;
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0%;
+  color: #f4f8fb;
+  cursor: pointer;
 }
-.input-group{
-    width: 760px;
-}
-
-.favourites{
-    width: 40px;
-    height: 40px;
-    background-image: url(./Header_img/heart-svgrepo-com.svg);
-    background-position: center;
-    background-size: cover;
+.input-group {
+  width: 760px;
 }
 
-.basket{
-    width: 40px;
-    height: 40px;
-    background-image: url(./Header_img/basket-svgrepo-com.svg);
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
+.favourites {
+  width: 40px;
+  height: 40px;
+  background-image: url(./Header_img/heart-svgrepo-com.svg);
+  background-position: center;
+  background-size: cover;
 }
 
-.header-last{
-    width: 150px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+.basket {
+  width: 40px;
+  height: 40px;
+  background-image: url(./Header_img/basket-svgrepo-com.svg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
 }
 
+.header-last {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Heebo:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap");
+
+h3 {
+  font-family: Lato;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #d9d9d9;
+}
+
+.aw {
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  color: #d9d9d9;
+  display: block;
+  margin-top: 12px;
+}
+
+.pw {
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  color: #d9d9d9;
+  margin-top: 10px;
+}
+.burger-button {
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 424px;
+  height: 100%;
+  background-color: #060f42;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 165px;
+  justify-content: space-between;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.menu-header a {
+  font-family: Lato;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #d9d9d9;
+}
+
+.close-button {
+  position: absolute;
+  top: 40px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-content {
+  margin-top: 20px;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.submenu {
+  padding-left: 20px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+.icons {
+  width: 170px;
+  height: 32px;
+  gap: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.icon1 {
+  width: 31px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: url(../footer/footer_img/Instagram.svg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.icon2 {
+  width: 31px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: url(../footer/footer_img/facebook.svg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.icon3 {
+  width: 31px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: url(../footer/footer_img/telegram.svg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.icon4 {
+  width: 31px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: url(../footer/footer_img/viber.svg);
+  background-position: center;
+  cursor: pointer;
+  background-size: cover;
+}
+.footer_img {
+  width: 160px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.logo {
+  width: 364px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
 </style>
