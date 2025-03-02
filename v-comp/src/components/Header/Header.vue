@@ -112,10 +112,13 @@
       <router-link :to="{ name: 'home' }">
         <img class="v-comp-svg" src="./Header_img/Logo.svg" alt="" />
       </router-link>
-      <button class="catalog-green">
+      <router-link :to="{ name: 'catalog' }">
+        <button class="catalog-green">
         КАТАЛОГ ТОВАРОВ
         <img src="./Header_img/Frame 7779.svg" class="catalog-gr" alt="" />
       </button>
+      </router-link>
+      
       <div class="input-group">
         <div class="form-outline" data-mdb-input-init>
           <input type="search" id="form1" class="form-control" />
