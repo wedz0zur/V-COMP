@@ -7,6 +7,8 @@ import Registration from './components/registration/Registration.vue';
 import Login from './components/registration/Login.vue';
 import Test from './components/Test.vue';
 import Catalog from './components/catalog/Catalog.vue';
+import Basket from './components/basket/Basket.vue';
+import Modal from './components/catalog/Modal.vue';
 
 const router = createRouter({
   routes: [
@@ -38,6 +40,16 @@ const router = createRouter({
       path: '/catalog',
       name: 'catalog',
       component: Catalog
+    },
+    {
+      path: "/basket",
+      name: "basket",
+      component: Basket,
+    },
+    {
+      path: "/modal",
+      name: "modal",
+      component: Modal,
     },
   ],
   history: createWebHistory(),

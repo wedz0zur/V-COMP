@@ -105,7 +105,7 @@ export default {
   gap: 10px;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-image: url(./Main_img/gameZoneFon.jpg);
+  background-color: #22275E;
   margin-top: 20px;
   padding-left: 10%;
   padding-right: 10%;
