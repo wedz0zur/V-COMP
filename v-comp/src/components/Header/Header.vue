@@ -132,7 +132,8 @@
       </div>
       <div class="header-last">
         <div class="favourites"></div>
-        <div class="basket"></div>
+        <router-link :to="{ name: 'basket' }"><div class="basket"></div></router-link>
+        
       </div>
     </div>
   </header>

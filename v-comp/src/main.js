@@ -51,6 +51,11 @@ const router = createRouter({
       name: "modal",
       component: Modal,
     },
+    {
+      path: "/basket",
+      name: "basket",
+      component: Basket,
+    },
   ],
   history: createWebHistory(),
 });

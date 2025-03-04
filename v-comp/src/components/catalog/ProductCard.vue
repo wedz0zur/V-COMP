@@ -1,36 +1,61 @@
 <template>
     <div class="product-card">
-        <div style="height: 320px;">
-            <div class="heart" @click="this.heart = !this.heart" :class="heart ? 'active' : 'noActive'"></div>
-            <img class="product-img" :src="product.image" alt="">
-            <h2 class="product-name">{{ product.name }}</h2>
+      <div style="height: 320px;">
+        <div class="heart" @click="heart = !heart" :class="heart ? 'active' : 'noActive'"></div>
+        <img class="product-img" :src="product.image" alt="" />
+        <h2 class="product-name">{{ product.name }}</h2>
+      </div>
+  
+      <div>
+        <h2 class="product-rating">{{ product.rating }} ⭐</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <p class="product-price">{{ product.price }}₽</p>
+  
+          <div v-if="isInCart">
+            <button class="counter-btn" @click="removeFromCart(product)">-</button>
+            <span class="counter">{{ quantity }}</span>
+            <button class="counter-btn" @click="addToCart(product)">+</button>
+          </div>
+  
+          <button v-else class="product-btn" @click="addToCart(product)">Купить</button>
         </div>
-
-        <div>
-            <h2 class="product-rating">{{ product.rating }} ⭐</h2>
-            <div style="display: flex; justify-content: space-between;">
-                <p class="product-price">{{ product.price }}₽</p>
-                <button class="product-btn">Купить</button>
-            </div>
-        </div>
-
+      </div>
     </div>
-</template>
-
-<script>
-export default {
+  </template>
+  
+  <script>
+  import { useCartStore } from '../../store/cartStore.js';
+  import { mapActions, mapState } from 'pinia';
+  
+  export default {
     data() {
-        return {
-            heart: false,
-        }
-
+      return {
+        heart: false,
+      };
     },
     props: {
-        product: Object
+      product: Object,
     },
-
-}
-</script>
+    computed: {
+      ...mapState(useCartStore, ['cart']),
+  
+      // Проверяем, есть ли товар в корзине
+      isInCart() {
+        return this.cart.some(item => item.id === this.product.id);
+      },
+  
+      // Получаем количество товара в корзине
+      quantity() {
+        const item = this.cart.find(item => item.id === this.product.id);
+        return item ? item.quantity : 0;
+      },
+    },
+    methods: {
+      ...mapActions(useCartStore, ['addToCart', 'removeFromCart']),
+    },
+  };
+  </script>
+  
 
 <style>
 .product-card {
