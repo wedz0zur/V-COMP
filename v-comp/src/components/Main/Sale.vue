@@ -9,7 +9,7 @@
           <p class="sale-price">
             {{ item.price }}<span class="sale-price-mini">₽</span>
           </p>
-          <button class="sale-buy">КУПИТЬ</button>
+          <router-link :to="{ name: 'catalog' }"><button class="sale-buy">Перейти в каталог</button></router-link>
         </div>
       </div>
       <a href="#" class="main-products">Смотреть все товары ></a>
@@ -175,8 +175,9 @@ section{
   font-size: 15px;
 }
 
+
 .sale-buy {
-  width: 73px;
+  width: 103px;
   height: 32px;
   gap: 8px;
   padding-top: 4px;
@@ -192,7 +193,7 @@ section{
   letter-spacing: 0%;
   color: #f4f8fb;
   border: 0;
-  margin-left: 52px;
+  margin-left: 22px;
 }
 .main-products {
   text-decoration: none;

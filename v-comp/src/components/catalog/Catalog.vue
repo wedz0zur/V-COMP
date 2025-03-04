@@ -15,7 +15,7 @@
 
     </div>
     <br>
-    <Footer />
+
 </template>
 
 <script>

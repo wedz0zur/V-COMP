@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="fixed-header">
     <div class="header_nav_prof">
       <div class="header-nav">
         <div style="padding: 30px; margin-left: -80px">
@@ -188,7 +188,10 @@ export default {
 
 header {
   box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
+  
 }
+
+
 
 .cart-count {
   padding-top: 3px;

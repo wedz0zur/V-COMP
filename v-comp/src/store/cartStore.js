@@ -41,9 +41,19 @@ export const useCartStore = defineStore('cart', {
       this.saveCart();
     },
 
+    removeAllFromCart(product) {
+      this.cart = this.cart.filter(item => item.id !== product.id);
+      this.saveCart();
+    },
+
     removeFromFavourites(product) {
       this.favourites = this.favourites.filter(item => item.id !== product.id);
       this.saveFavourites();
     },
+
+    clearCart() {
+      this.cart = [];
+      this.saveCart();
+    }
   },
 });

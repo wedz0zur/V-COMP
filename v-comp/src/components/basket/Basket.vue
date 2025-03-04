@@ -44,13 +44,12 @@ export default {
     }
   },
   methods: {
-  ...mapActions(useCartStore, ['addToCart', 'removeFromCart', 'removeAllFromCart', 'clearCart']),
-  checkout() {
-    alert('Заказ оформлен! 🎉');
-    this.clearCart(); 
+    ...mapActions(useCartStore, ['addToCart', 'removeFromCart', 'removeAllFromCart', 'clearCart']),
+    checkout() {
+      alert('Заказ оформлен! 🎉');
+      this.clearCart(); 
+    }
   }
-}
-
 };
 </script>
 

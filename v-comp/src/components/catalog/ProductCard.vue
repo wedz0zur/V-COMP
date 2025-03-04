@@ -1,79 +1,129 @@
 <template>
   <div class="product-card">
-    <div style="height: 320px;">
-      <div class="heart" @click="toggleFavourite" :class="heart ? 'active' : 'noActive'"></div>
+    <div style="height: 320px">
+      <div
+        class="heart"
+        @click="toggleFavourite"
+        :class="isFavourite ? 'active' : 'noActive'"
+      ></div>
       <img class="product-img" :src="product.image" alt="" />
       <h2 class="product-name">{{ product.name }}</h2>
     </div>
 
     <div>
-      <h2 class="product-rating">{{ product.rating }} ⭐</h2>
-      <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <h2 class="product-rating">{{ product.rating }} ⭐</h2>
+        <div class="info-container">
+          <button class="info-btn">Информация о товаре</button>
+          <ProductInfo class="tooltip" :product="product" />
+        </div>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
         <p class="product-price">{{ product.price }}₽</p>
 
-        <div class="btns" v-if="isInCart">
-          <button class="counter-btn" @click="removeFromCart(product)">-</button>
+        <div style="display: flex" v-if="isInCart">
+          <button class="counter-btn" @click="removeFromCart(product)">
+            -
+          </button>
           <span class="counter">{{ quantity }}</span>
           <button class="counter-btn" @click="addToCart(product)">+</button>
         </div>
 
-        <button v-else class="product-btn" @click="addToCart(product)">Купить</button>
+        <button v-else class="product-btn" @click="addToCart(product)">
+          Купить
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { useCartStore } from '../../store/cartStore.js';
-import { mapActions, mapState } from 'pinia';
+import { useCartStore } from "../../store/cartStore.js";
+import { mapActions, mapState } from "pinia";
+import ProductInfo from "./ProductInfo.vue";
 
 export default {
-  data() {
-    return {
-      heart: false,
-    };
+  components: {
+    ProductInfo,
   },
   props: {
     product: Object,
   },
   computed: {
-    ...mapState(useCartStore, ['cart', 'favourites']),
-
+    ...mapState(useCartStore, ["cart", "favourites"]),
     isInCart() {
-      return this.cart.some(item => item.id === this.product.id);
+      return this.cart.some((item) => item.id === this.product.id);
     },
-
     quantity() {
-      const item = this.cart.find(item => item.id === this.product.id);
+      const item = this.cart.find((item) => item.id === this.product.id);
       return item ? item.quantity : 0;
     },
-
     isFavourite() {
-      return this.favourites.some(item => item.id === this.product.id);
+      return this.favourites.some((item) => item.id === this.product.id);
     },
   },
   methods: {
-    ...mapActions(useCartStore, ['addToCart', 'removeFromCart', 'addToFavourites', 'removeFromFavourites']),
-
+    ...mapActions(useCartStore, [
+      "addToCart",
+      "removeFromCart",
+      "addToFavourites",
+      "removeFromFavourites",
+    ]),
     toggleFavourite() {
       if (this.isFavourite) {
         this.removeFromFavourites(this.product);
-        this.heart = false;
       } else {
         this.addToFavourites(this.product);
-        this.heart = true;
       }
     },
-  },
-  watch: {
-    isFavourite(newVal) {
-      this.heart = newVal;
-    }
   },
 };
 </script>
 
+
 <style scoped>
+.info-container {
+  position: relative;
+  display: inline-block;
+}
+
+.info-btn {
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0%;
+
+  background-color: #55a0f0;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.info-btn:hover {
+  background-color: #0056b3;
+}
+
+.info-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
 .product-card {
   position: relative;
   width: 242px;
@@ -111,7 +161,7 @@ export default {
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0%;
-  color: #E93232;
+  color: #e93232;
   margin-top: 5px;
 }
 
@@ -124,13 +174,13 @@ export default {
   padding-right: 12px;
   padding-bottom: 4px;
   padding-left: 12px;
-  background-color: #06A56C;
+  background-color: #06a56c;
   font-family: Lato;
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
   letter-spacing: 0%;
-  color: #F4F8FB;
+  color: #f4f8fb;
   border: 0;
 }
 
@@ -165,7 +215,7 @@ export default {
   height: 32px;
   border: none;
   border-radius: 50%;
-  background-color: #06A56C;
+  background-color: #06a56c;
   color: #fff;
   font-size: 20px;
   font-weight: bold;
@@ -193,7 +243,7 @@ export default {
   text-align: center;
 }
 
-.btns{
+.btns {
   display: flex;
 }
 </style>
