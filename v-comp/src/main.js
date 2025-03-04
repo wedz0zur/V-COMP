@@ -5,21 +5,16 @@ import App from './App.vue';
 import Home from './components/Home.vue';
 import Registration from './components/registration/Registration.vue';
 import Login from './components/registration/Login.vue';
-import Test from './components/Test.vue';
 import Catalog from './components/catalog/Catalog.vue';
 import Basket from './components/basket/Basket.vue';
 import Modal from './components/catalog/Modal.vue';
+import Favourites from './components/favourites/Favourites.vue';
 
 const router = createRouter({
   routes: [
     {
       path: "/",
       redirect: "/home", 
-    },
-    {
-      path: "/test",
-      name: "test", 
-      component: Test,
     },
     {
       path: "/home",
@@ -55,6 +50,11 @@ const router = createRouter({
       path: "/basket",
       name: "basket",
       component: Basket,
+    },
+    {
+      path: "/favourites",
+      name: "favourites",
+      component: Favourites,
     },
   ],
   history: createWebHistory(),

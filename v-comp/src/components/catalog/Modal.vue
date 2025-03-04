@@ -17,7 +17,7 @@
     },
     methods: {
       close() {
-        this.$emit('close'); // Закрытие модалки
+        this.$emit('close'); 
       }
     }
   }

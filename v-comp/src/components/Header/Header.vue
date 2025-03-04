@@ -6,30 +6,22 @@
           <transition name="slide">
             <section v-if="menu" class="burger-menu">
               <div class="logo">
-                <router-link :to="{ name: 'home' }"
-                  ><img
-                    class="footer_img"
-                    src="../footer/footer_img/footer-img.svg"
-                    alt=""
-                /></router-link>
+                <router-link :to="{ name: 'home' }"><img class="footer_img" src="../footer/footer_img/footer-img.svg"
+                    alt="" /></router-link>
                 <button @click="menu = false" class="close-button">✖</button>
               </div>
               <div class="menu-header">
                 <router-link to="/login">Войти</router-link>
                 <span style="margin-top: 5px">|</span>
-                <router-link style="margin-top: 3px" to="/registration"
-                  >Регистрация</router-link
-                >
+                <router-link style="margin-top: 3px" to="/registration">Регистрация</router-link>
               </div>
 
               <div class="menu-content">
-                <h3
-                  style="
+                <h3 style="
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 16px;
-                  "
-                >
+                  ">
                   Информация
                   <span @click="toggleSubmenu('list1')" class="arrow">{{
                     list1 ? "🡩" : "🡫"
@@ -48,13 +40,11 @@
                   <a class="aw" href="#">Контакты</a>
                 </div>
 
-                <h3
-                  style="
+                <h3 style="
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 16px;
-                  "
-                >
+                  ">
                   Наши сервисы
                   <span @click="toggleSubmenu('list2')" class="arrow">{{
                     list2 ? "🡩" : "🡫"
@@ -114,32 +104,39 @@
       </router-link>
       <router-link :to="{ name: 'catalog' }">
         <button class="catalog-green">
-        КАТАЛОГ ТОВАРОВ
-        <img src="./Header_img/Frame 7779.svg" class="catalog-gr" alt="" />
-      </button>
+          КАТАЛОГ ТОВАРОВ
+          <img src="./Header_img/Frame 7779.svg" class="catalog-gr" alt="" />
+        </button>
       </router-link>
-      
+
       <div class="input-group">
         <div class="form-outline" data-mdb-input-init>
           <input type="search" id="form1" class="form-control" />
           <label class="form-label" for="form1">Поиск</label>
         </div>
         <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-          <i class="fas fa-search"
-            ><img src="./Header_img/vector.svg" alt=""
-          /></i>
+          <i class="fas fa-search"><img src="./Header_img/vector.svg" alt="" /></i>
         </button>
       </div>
       <div class="header-last">
-        <div class="favourites"></div>
-        <router-link :to="{ name: 'basket' }"><div class="basket"></div></router-link>
-        
+        <router-link :to="{ name: 'favourites' }">
+      <div class="favourites">
+        <span v-if="favouritesCount > 0" class="favourites-count">{{ favouritesCount }}</span>
+      </div>
+    </router-link>
+    <router-link :to="{ name: 'basket' }">
+      <div class="basket">
+        <span v-if="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+      </div>
+    </router-link>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import { useCartStore } from '@/store/cartStore.js';
+import { mapState } from 'pinia';
 import { Input, Ripple, initMDB } from "mdb-ui-kit";
 import "mdb-ui-kit/css/mdb.min.css";
 import "mdb-ui-kit/js/mdb.es.min.js";
@@ -153,6 +150,15 @@ export default {
       list1: false,
       list2: false,
     };
+  },
+  computed: {
+    ...mapState(useCartStore, ['favourites', 'cart']),
+    favouritesCount() {
+      return this.favourites.length;
+    },
+    cartItemCount() {
+      return this.cart.reduce((sum, item) => sum + item.quantity, 0);
+    },
   },
   mounted() {
     initMDB({ Input, Ripple });
@@ -176,12 +182,49 @@ export default {
 };
 </script>
 
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 header {
   box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
 }
+
+.cart-count {
+  padding-top: 3px;
+  position: relative;
+  top: -5px;
+  right: -30px;
+  background-color: #06A56C;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.favourites-count {
+  padding-top: 3px;
+  position: relative;
+  top: -5px;
+  right: -30px;
+  background-color: #FFCD1B;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
 .user-phone {
   font-family: Lato;
   font-weight: 500;
@@ -268,6 +311,7 @@ header {
   color: #f4f8fb;
   cursor: pointer;
 }
+
 .input-group {
   width: 760px;
 }
@@ -327,6 +371,7 @@ h3 {
   color: #d9d9d9;
   margin-top: 10px;
 }
+
 .burger-button {
   font-size: 24px;
   cursor: pointer;
@@ -398,6 +443,7 @@ h3 {
 .slide-leave-to {
   transform: translateX(-100%);
 }
+
 .icons {
   width: 170px;
   height: 32px;
@@ -446,6 +492,7 @@ h3 {
   cursor: pointer;
   background-size: cover;
 }
+
 .footer_img {
   width: 160px;
   height: 40px;
