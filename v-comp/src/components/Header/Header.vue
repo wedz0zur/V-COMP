@@ -92,10 +92,11 @@
         <a href="#">Контакты</a>
       </div>
       <div class="profile-info">
-        <router-link :to="{ name: 'registration' }">
+        <span v-if="userName" class="user-phone">{{ userName }}</span>
+        <router-link :to="{ name: 'personal' }">
           <img class="profile" src="./Header_img/Shape.svg" alt="" />
         </router-link>
-        <span v-if="userPhone" class="user-phone">{{ userPhone }}</span>
+        
       </div>
     </div>
     <div class="header_search">
@@ -145,7 +146,7 @@ export default {
   name: "header",
   data() {
     return {
-      userPhone: null,
+      userName: null,
       menu: false,
       list1: false,
       list2: false,
@@ -168,7 +169,7 @@ export default {
     loadUserData() {
       const userData = JSON.parse(localStorage.getItem("users"));
       if (userData && userData.phone) {
-        this.userPhone = userData.phone;
+        this.userName = userData.name;
       }
     },
     toggleSubmenu(list) {

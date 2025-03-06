@@ -121,6 +121,7 @@ footer {
     gap: 8px;
     display: flex;
     justify-content: space-between;
+    margin-left: 100px;
 }
 
 .icon1 {

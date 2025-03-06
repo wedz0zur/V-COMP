@@ -4,6 +4,33 @@
       <h1>Регистрация</h1>
       <div class="input-group">
         <input
+          type="email"
+          v-model="email"
+          placeholder="Ваша почта"
+          required
+        />
+      </div>
+      <p v-if="emailError" class="error">{{ emailError }}</p>
+      <div class="input-group">
+        <input
+          type="text"
+          v-model="name"
+          placeholder="Ваше имя"
+          required
+        />
+      </div>
+      <p v-if="nameError" class="error">{{ nameError }}</p>
+      <div class="input-group">
+        <input
+          type="text"
+          v-model="lastName"
+          placeholder="Ваша фамилия"
+          required
+        />
+      </div>
+      <p v-if="lastNameError" class="error">{{ lastNameError }}</p>
+      <div class="input-group">
+        <input
           type="text"
           v-model="phone"
           placeholder="Ваш номер телефона"
@@ -20,6 +47,7 @@
         />
       </div>
       <p v-if="passwordError" class="error">{{ passwordError }}</p>
+
       <p class="agreement">
         Регистрируясь, вы соглашаетесь с
         <a href="#">пользовательским соглашением</a>
@@ -38,15 +66,33 @@ export default {
     return {
       phone: '',
       password: '',
+      name: '',
+      lastName: '',
+      email: '',
       phoneError: '',
-      passwordError: ''
+      passwordError: '',
+      nameError: '',
+      lastNameError: '',
+      emailError: ''
     };
   },
   methods: {
     validateForm() {
       this.phoneError = '';
       this.passwordError = '';
+      this.nameError = '';
+      this.lastNameError = '';
+      this.emailError = '';
 
+      if (!this.login) {
+        this.emailError = 'email вводить обязательно.';
+      }
+      if (!this.name) {
+        this.nameError = 'Имя вводить обязателен.';
+      }
+      if (!this.lastName) {
+        this.lastNameError = 'Фамилию вводить обязательно.';
+      }
       if (!this.phone) {
         this.phoneError = 'Номер телефона обязателен.';
       }
@@ -65,7 +111,10 @@ export default {
       console.log('Регистрация прошла успешно');
       const newUser = {
         phone: this.phone,
-        password: this.password
+        password: this.password,
+        name: this.name,
+        lastName: this.lastName,
+        email: this.email
       };
       const usersJson = JSON.stringify(newUser);
       localStorage.setItem('users', usersJson);
