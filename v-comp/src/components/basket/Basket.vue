@@ -28,6 +28,7 @@
 
     <div v-else class="empty-basket">
       <p>Корзина пуста 😔</p>
+      <img class="basketNoN" src="./basketNoN.jpg" alt="">
     </div>
   </div>
 </template>
@@ -47,15 +48,22 @@ export default {
     ...mapActions(useCartStore, ['addToCart', 'removeFromCart', 'removeAllFromCart', 'clearCart']),
     checkout() {
       alert('Заказ оформлен! 🎉');
-      this.clearCart(); 
+      this.clearCart();
     }
   }
 };
 </script>
 
 <style scoped>
+.basketNoN {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+}
+
 .basket {
   width: 100%;
+  height: 600px;
   max-width: 600px;
   margin: 20px auto;
   background: #fff;

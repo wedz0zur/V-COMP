@@ -4,6 +4,7 @@
     <div class="favourites-list">
       <div v-if="favourites.length === 0" class="no-favourites">
         Нет избранных товаров.
+        <img src="./favoritesNoN.jpg" alt="" class="favoritesNoN">
       </div>
       <div v-else class="product-grid">
         <div v-for="product in favourites" :key="product.id" class="product-card">
@@ -37,11 +38,23 @@ export default {
 </script>
 
 <style scoped>
+.favoritesNoN {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+  margin-left: 30%;
+}
+
+
 .favourites-page {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+  width: 100%;
+  height: 600px;
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -136,10 +149,13 @@ h1 {
 }
 
 .no-favourites {
+  display: flex;
   font-size: 24px;
   color: #999;
   text-align: center;
   margin-top: 50px;
+  height: 600px;
+  flex-direction: column;
 }
 
 </style>

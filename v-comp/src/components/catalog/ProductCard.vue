@@ -12,19 +12,18 @@
 
     <div>
       <div
-        style="
+      style="
           display: flex;
           justify-content: space-between;
           align-items: center;
-        "
+          "
       >
-        <h2 class="product-rating">{{ product.rating }} ⭐</h2>
-        <div class="info-container">
-          <button class="info-btn">Информация о товаре</button>
-          <ProductInfo class="tooltip" :product="product" />
+      <h2 class="product-rating">{{ product.rating }} ⭐</h2>
+      <div class="info-container">
+        <button class="info-btn" @click=openModal>Информация о товаре</button>
+        <ProductInfo v-if="modal" :product="product" :modal="modal" @close="modal=false" />
         </div>
       </div>
-
       <div
         style="
           display: flex;
@@ -48,6 +47,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -56,6 +56,12 @@ import { mapActions, mapState } from "pinia";
 import ProductInfo from "./ProductInfo.vue";
 
 export default {
+  data(){
+    return{
+      modal: false,
+      modalClass: 'tooltip',
+    }
+  },
   components: {
     ProductInfo,
   },
@@ -76,6 +82,9 @@ export default {
     },
   },
   methods: {
+    openModal(){
+      this.modal = true
+    },
     ...mapActions(useCartStore, [
       "addToCart",
       "removeFromCart",
@@ -120,7 +129,7 @@ export default {
   background-color: #0056b3;
 }
 
-.info-container:hover .tooltip {
+.tooltip {
   visibility: visible;
   opacity: 1;
 }
