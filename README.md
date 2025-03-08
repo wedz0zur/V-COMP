@@ -1,5 +1,7 @@
 🛒 Магазин ПК-техники (Vue 3 + Pinia)
+
 Этот проект — веб-приложение на Vue 3, которое использует API для загрузки данных о товарах.
+
 
 📌 Основные возможности
 
@@ -24,17 +26,26 @@
 
 
 🚀 Технологии
+
 Vue 3 — основа проекта.
+
 Pinia — управление состоянием.
+
 Vue Router — маршрутизация.
+
 localStorage — сохранение данных пользователя.
 
 
 📂 Установка и запуск
+
 -git clone https://github.com/wedz0zur/V-COMP.git
+
 -cd v-comp
+
 -npm install
+
 -npm run dev
+
 
 ![main](https://github.com/user-attachments/assets/48e435bc-c53b-43ea-ab2c-c73c3581fc4d)
 
