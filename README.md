@@ -21,13 +21,10 @@ localStorage — сохранение данных пользователя.
 
 
 📂 Установка и запуск
-bash
-Копировать
-Редактировать
-git clone https://github.com/wedz0zur/V-COMP.git
-cd имя-папки-с-проектом
-npm install
-npm run dev
+-git clone https://github.com/wedz0zur/V-COMP.git
+-cd v-comp
+-npm install
+-npm run dev
 
 ![main](https://github.com/user-attachments/assets/48e435bc-c53b-43ea-ab2c-c73c3581fc4d)
 
