@@ -24,7 +24,7 @@ localStorage — сохранение данных пользователя.
 bash
 Копировать
 Редактировать
-git clone https://github.com/твой-репозиторий.git
+git clone https://github.com/wedz0zur/V-COMP.git
 cd имя-папки-с-проектом
 npm install
 npm run dev
