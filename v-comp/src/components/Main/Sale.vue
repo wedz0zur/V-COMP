@@ -139,6 +139,7 @@ section{
   height: 200px;
   margin-left: 4px;
   margin-top: 12px;
+  pointer-events: none
 }
 
 .sale-info {

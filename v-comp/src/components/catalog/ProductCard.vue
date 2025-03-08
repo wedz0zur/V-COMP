@@ -152,6 +152,7 @@ export default {
   width: 218px;
   height: 214px;
   object-fit: contain;
+  pointer-events: none
 }
 
 .product-name {

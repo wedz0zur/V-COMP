@@ -59,6 +59,7 @@ export default {
   width: 40%;
   height: 40%;
   object-fit: cover;
+  pointer-events: none
 }
 
 .basket {

@@ -135,6 +135,7 @@ export default{
   background-size: cover;
   background-position: center;
   margin-left: 20px;
+  pointer-events: none
 }
 
 .section-1-infs {

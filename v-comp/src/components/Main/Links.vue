@@ -464,6 +464,7 @@ export default {
     background-image: url(./Main_img/news-img-1.svg);
     background-size: cover;
     background-position: center;
+    pointer-events: none
 }
 
 .news-p1 {
@@ -518,6 +519,7 @@ export default {
     background-image: url(./Main_img/news-img-2.svg);
     background-size: cover;
     background-position: center;
+    pointer-events: none
 }
 
 .news-img-3 {
@@ -526,6 +528,7 @@ export default {
     background-image: url(./Main_img/news-img-3.svg);
     background-size: cover;
     background-position: center;
+    pointer-events: none
 }
 
 .news-img-4 {
@@ -534,6 +537,7 @@ export default {
     background-image: url(./Main_img/news-img-4.svg);
     background-size: cover;
     background-position: center;
+    pointer-events: none
 }
 
 .store-accessories-p1{

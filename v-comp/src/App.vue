@@ -25,6 +25,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 
@@ -49,4 +50,6 @@ footer {
   padding: 20px;
   text-align: center;
 }
+
+
 </style>

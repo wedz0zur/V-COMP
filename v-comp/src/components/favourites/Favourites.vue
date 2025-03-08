@@ -43,6 +43,7 @@ export default {
   height: 40%;
   object-fit: contain;
   margin-left: 30%;
+  pointer-events: none
 }
 
 .favourites-page {
@@ -100,6 +101,7 @@ h1 {
   height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
+  pointer-events: none
 }
 
 .product-info {
