@@ -41,20 +41,25 @@ export default {
 .favoritesNoN {
   width: 40%;
   height: 40%;
-  object-fit: cover;
+  object-fit: contain;
   margin-left: 30%;
 }
 
-
 .favourites-page {
-  width: 100%;
-  height: 600px;
-  max-width: 600px;
+  width: 90%;
+  max-width: 1200px;
   margin: 20px auto;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
 }
 
 h1 {
@@ -69,14 +74,10 @@ h1 {
   width: 100%;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px;
-  justify-content: center;
-}
+
 
 .product-card {
+  max-width: 350px; 
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
@@ -86,7 +87,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 400px;
 }
 
 .product-card:hover {
@@ -121,6 +121,7 @@ h1 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  
 }
 
 .product-price {
