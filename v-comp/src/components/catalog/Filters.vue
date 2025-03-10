@@ -22,7 +22,7 @@ export default{
         ...mapState(useCatalogStore, ["filters"]),
     },
     methods: {
-        ...mapActions(useCatalogStore, ["setMinPrice", "setMaxPrice", "toggleCategory"])
+        ...mapActions(useCatalogStore, ["setMinPrice", "setMaxPrice"])
     }
 }
 
