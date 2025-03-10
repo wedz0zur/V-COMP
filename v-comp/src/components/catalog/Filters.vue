@@ -20,9 +20,6 @@ import {useCatalogStore} from '../../store/store';
 export default{
     computed: {
         ...mapState(useCatalogStore, ["filters"]),
-        categories(){
-            return["Ноутбуки", "Компьютеры", "Мониторы"];
-        }
     },
     methods: {
         ...mapActions(useCatalogStore, ["setMinPrice", "setMaxPrice", "toggleCategory"])
