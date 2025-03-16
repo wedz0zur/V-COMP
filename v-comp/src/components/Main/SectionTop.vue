@@ -131,7 +131,7 @@ export default{
 .section-1-info-img {
   width: 1145px;
   height: 400px;
-  background-image: url(./Main_img/Hero_home_oage.svg);
+  background-image: url(./Main_img/Hero_home_page.svg);
   background-size: cover;
   background-position: center;
   margin-left: 20px;

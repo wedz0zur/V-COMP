@@ -10,6 +10,7 @@ import Basket from './components/basket/Basket.vue';
 import Modal from './components/catalog/Modal.vue';
 import Favourites from './components/favourites/Favourites.vue';
 import PersonalAccount from './components/personalAccount/PersonalAccount.vue';
+import NotFound from './components/not-found/Not-found.vue';
 
 const router = createRouter({
   routes: [
@@ -62,6 +63,7 @@ const router = createRouter({
       name: "personal",
       component: PersonalAccount,
     },
+    { path: '/:catchAll(.*)', component: NotFound },
   ],
   history: createWebHistory(),
 });
