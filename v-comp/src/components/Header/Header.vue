@@ -185,15 +185,11 @@ export default {
 
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 header {
   box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
   
 }
-
-
-
 .cart-count {
   padding-top: 3px;
   position: relative;
@@ -230,9 +226,9 @@ header {
 
 
 .user-phone {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 12px;
   letter-spacing: 0%;
   color: #f4f8fb;
@@ -248,7 +244,7 @@ header {
 }
 
 .header-nav {
-  width: 460px;
+  width: 570px;
   height: 24px;
   display: flex;
   justify-content: space-between;
@@ -256,9 +252,9 @@ header {
 }
 
 .header-nav a {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 12px;
   color: #f4f8fb;
   text-decoration: none;
@@ -307,9 +303,9 @@ header {
   justify-content: space-around;
   border-radius: 4px;
   background-color: #06a56c;
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 12px;
   letter-spacing: 0%;
   color: #f4f8fb;
@@ -344,10 +340,8 @@ header {
   cursor: pointer;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Heebo:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap");
-
 h3 {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -356,9 +350,9 @@ h3 {
 }
 
 .aw {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 16px;
   letter-spacing: 0%;
   color: #d9d9d9;
@@ -367,9 +361,9 @@ h3 {
 }
 
 .pw {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 16px;
   letter-spacing: 0%;
   color: #d9d9d9;
@@ -406,7 +400,7 @@ h3 {
 }
 
 .menu-header a {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -511,4 +505,5 @@ h3 {
   margin-top: -10px;
   margin-bottom: 20px;
 }
+
 </style>

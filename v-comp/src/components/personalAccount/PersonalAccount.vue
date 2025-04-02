@@ -87,7 +87,7 @@ section {
     height: 56px;
     padding: 12px;
     padding-top: 18px;
-    font-family: Lato;
+    font-family: "IBM Plex Mono", monospace;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;

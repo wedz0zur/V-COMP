@@ -157,7 +157,7 @@ h1 {
   color: #999;
   text-align: center;
   margin-top: 50px;
-  height: 600px;
+  min-height: 600px;
   flex-direction: column;
 }
 

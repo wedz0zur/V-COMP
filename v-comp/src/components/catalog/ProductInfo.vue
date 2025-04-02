@@ -47,6 +47,10 @@ export default {
   animation: fadeIn 0.3s ease-out;
 }
 
+.modal-content p{
+  font-family: "IBM Plex Mono", monospace;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

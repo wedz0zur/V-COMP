@@ -20,7 +20,7 @@
       >
       <h2 class="product-rating">{{ product.rating }} ⭐</h2>
       <div class="info-container">
-        <button class="info-btn" @click=openModal>Информация о товаре</button>
+        <button class="info-btn" @click=openModal>Подробнее</button>
         <ProductInfo v-if="modal" :product="product" :modal="modal" @close="modal=false" />
         </div>
       </div>
@@ -110,7 +110,7 @@ export default {
 }
 
 .info-btn {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -126,6 +126,7 @@ export default {
 }
 
 .info-btn:hover {
+  transition: 0.5s;
   background-color: #0056b3;
 }
 
@@ -144,6 +145,10 @@ export default {
   transition: box-shadow 0.3s ease;
 }
 
+.product-card p{
+  font-family: "IBM Plex Mono", monospace;
+}
+
 .product-card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -156,7 +161,7 @@ export default {
 }
 
 .product-name {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 17px;
   line-height: 16px;
@@ -166,7 +171,7 @@ export default {
 }
 
 .product-price {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
@@ -185,7 +190,7 @@ export default {
   padding-bottom: 4px;
   padding-left: 12px;
   background-color: #06a56c;
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -214,7 +219,7 @@ export default {
 }
 
 .product-rating {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
@@ -256,4 +261,13 @@ export default {
 .btns {
   display: flex;
 }
+
+@keyframes subtleAppear {
+  from { opacity: 0.8; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.product-card {
+  animation: subtleAppear 0.3s ease-out;
+}
+
 </style>

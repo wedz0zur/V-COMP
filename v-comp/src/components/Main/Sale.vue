@@ -143,9 +143,9 @@ section{
 }
 
 .sale-info {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 16px;
   letter-spacing: 0%;
   margin-left: 12px;
@@ -155,14 +155,14 @@ section{
 .sale-reviews {
   font-family: Roboto;
   font-weight: 400;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 12.89px;
   color: #999999;
   margin-left: 12px;
 }
 
 .sale-price {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
@@ -187,7 +187,7 @@ section{
   padding-left: 12px;
   border-radius: 4px;
   background-color: #06a56c;
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -199,7 +199,7 @@ section{
 .main-products {
   text-decoration: none;
   color: #01579b;
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;

@@ -64,7 +64,7 @@ export default {
 
 .basket {
   width: 100%;
-  height: 600px;
+  min-height: 600px;
   max-width: 600px;
   margin: 20px auto;
   background: #fff;
@@ -94,6 +94,7 @@ export default {
 }
 
 .basket-item-info h3 {
+  width: 200px;
   font-size: 16px;
   margin: 0;
 }

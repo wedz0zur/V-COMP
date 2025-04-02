@@ -86,7 +86,7 @@ footer {
 }
 
 .footer-p1 {
-    font-family: Lato;
+    font-family: "IBM Plex Mono", monospace;
     font-weight: 600;
     font-size: 18px;
     line-height: 24px;
@@ -95,7 +95,7 @@ footer {
 }
 
 .footer-p2 {
-    font-family: Lato;
+    font-family: "IBM Plex Mono", monospace;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
@@ -233,7 +233,7 @@ input::placeholder {
 }
 
 .footer-P {
-    font-family: Lato;
+    font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
     font-size: 12px;
     line-height: 14.4px;

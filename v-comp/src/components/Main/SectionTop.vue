@@ -106,9 +106,9 @@ export default{
   height: 48px;
   display: flex;
   align-items: center;
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 19px;
   line-height: 20px;
   letter-spacing: 0%;
   color: #060f42;
@@ -150,9 +150,9 @@ export default{
 }
 
 .section-1-inf-p {
-  font-family: Lato;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 12px;
   letter-spacing: 0%;
   text-align: center;
