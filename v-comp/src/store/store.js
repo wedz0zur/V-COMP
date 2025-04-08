@@ -4,22 +4,29 @@ export const useCatalogStore = defineStore("catalog", {
   state: () => ({
     products: [],
     filters: {
-        minPrice: 50,
-        maxPrice: 180000,
+      minPrice: 50,
+      maxPrice: 180000,
     },
     loading: false,
     error: null,
+    input: "",
   }),
   getters: {
-    filterProducts(state){
-        return state.products.filter(
-            product => {
-                const inPriceRange = product.price >= state.filters.minPrice && product.price <= state.filters.maxPrice;
-                return inPriceRange;
-            }
-        )
-    }
+    filterProducts: (state) => {
+      return state.products.filter((product) => {
+        const inPriceRange =
+          product.price >= state.filters.minPrice &&
+          product.price <= state.filters.maxPrice;
+        const matchesInput = product.name
+          .toLowerCase()
+          .includes(state.input.toLowerCase());
+
+        return inPriceRange && matchesInput;
+      });
+    },
   },
+
+  
   actions: {
     async fetchProducts() {
       this.loading = true;
@@ -34,15 +41,14 @@ export const useCatalogStore = defineStore("catalog", {
         this.error = err.message;
         console.log(err);
       } finally {
-        this.loading = false
+        this.loading = false;
       }
     },
-    setMinPrice(price){
-        this.filters.minPrice = price;
+    setMinPrice(price) {
+      this.filters.minPrice = price;
     },
-    setMaxPrice(price){
-        this.filters.maxPrice = price;
+    setMaxPrice(price) {
+      this.filters.maxPrice = price;
     },
-    
   },
 });

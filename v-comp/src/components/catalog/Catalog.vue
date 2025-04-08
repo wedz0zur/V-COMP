@@ -1,8 +1,7 @@
 <template>
     <div style="margin-left: 10%; margin-top: 50px;" class="">
-        <div style="display: flex;"> 
+        <div style="display: flex;">
             <h1 style="margin-bottom: 20px;">Каталог товаров</h1>
-            <input v-model="input" class="search" type="text" placeholder="поиск товара" @input="handleSearch">
         </div>
         <p v-if="loading">Загрузка товаров...</p>
         <p v-if="error">{{ error }}</p>
@@ -10,7 +9,7 @@
             <Filters style="width: 242px;" />
             <div class="product-container" v-if="filteredProducts.length">
                 <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product" />
-                
+
             </div>
             <p v-else-if="!loading">Товары не найдены</p>
         </div>
@@ -33,24 +32,21 @@ export default {
     data() {
         return {
             store: useCatalogStore(),
-            input: ''
         }
     },
     computed: {
-        ...mapState(useCatalogStore, ["filterProducts", "loading", "error"]),
+        ...mapState(useCatalogStore, ["filterProducts", "loading", "error", "input"]),
         filteredProducts() {
-            if (!this.input) return this.filterProducts;
-            return this.filterProducts.filter(product => 
-                product.name.toLowerCase().includes(this.input.toLowerCase())
-            );
-        }
+            return this.filterProducts;
+        },
     },
     methods: {
-        ...mapActions(useCatalogStore, ["fetchProducts"])
+        ...mapActions(useCatalogStore, ["fetchProducts"]),
     },
     mounted() {
-        this.fetchProducts()
+        this.fetchProducts();
     },
+
     components: {
         Header,
         Footer,
@@ -79,7 +75,7 @@ export default {
     font-size: 16px;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search:focus {

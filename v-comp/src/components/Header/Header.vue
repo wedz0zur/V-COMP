@@ -59,7 +59,6 @@
                   <a class="aw" href="#">Сотрудничество</a>
                   <a class="aw" href="#">Главная</a>
                 </div>
-
                 <h3 style="margin-bottom: 16px">Контакты</h3>
                 <p class="pw">(067) 11-12-485 - Отдел продаж</p>
                 <p class="pw">(066) 484-39-22 - Отдел продаж</p>
@@ -67,7 +66,6 @@
                 <p class="pw">Понедельник-Пятница 9:00-19:00</p>
                 <p class="pw">Суббота-Воскресенье: с 9:00-16:00</p>
               </div>
-
               <h3>Следите за нами</h3>
               <div class="icons">
                 <div class="icon1"></div>
@@ -96,7 +94,7 @@
         <router-link :to="{ name: 'personal' }">
           <img class="profile" src="./Header_img/Shape.svg" alt="" />
         </router-link>
-        
+
       </div>
     </div>
     <div class="header_search">
@@ -112,7 +110,7 @@
 
       <div class="input-group">
         <div class="form-outline" data-mdb-input-init>
-          <input type="search" id="form1" class="form-control" />
+          <input type="search" v-model="this.store.input" id="form1" class="form-control" />
           <label class="form-label" for="form1">Поиск</label>
         </div>
         <button type="button" class="btn btn-primary" data-mdb-ripple-init>
@@ -121,15 +119,15 @@
       </div>
       <div class="header-last">
         <router-link :to="{ name: 'favourites' }">
-      <div class="favourites">
-        <span v-if="favouritesCount > 0" class="favourites-count">{{ favouritesCount }}</span>
-      </div>
-    </router-link>
-    <router-link :to="{ name: 'basket' }">
-      <div class="basket">
-        <span v-if="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
-      </div>
-    </router-link>
+          <div class="favourites">
+            <span v-if="favouritesCount > 0" class="favourites-count">{{ favouritesCount }}</span>
+          </div>
+        </router-link>
+        <router-link :to="{ name: 'basket' }">
+          <div class="basket">
+            <span v-if="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+          </div>
+        </router-link>
       </div>
     </div>
   </header>
@@ -137,6 +135,7 @@
 
 <script>
 import { useCartStore } from '@/store/cartStore.js';
+import { useCatalogStore } from '@/store/store';
 import { mapState } from 'pinia';
 import { Input, Ripple, initMDB } from "mdb-ui-kit";
 import "mdb-ui-kit/css/mdb.min.css";
@@ -150,10 +149,13 @@ export default {
       menu: false,
       list1: false,
       list2: false,
+      store: useCatalogStore(),
     };
   },
   computed: {
     ...mapState(useCartStore, ['favourites', 'cart']),
+    ...mapState(useCatalogStore, ["filterProducts", "loading", "error", "input"]),
+
     favouritesCount() {
       return this.favourites.length;
     },
@@ -185,11 +187,11 @@ export default {
 
 
 <style scoped>
-
 header {
   box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
-  
+
 }
+
 .cart-count {
   padding-top: 3px;
   position: relative;
@@ -505,5 +507,4 @@ h3 {
   margin-top: -10px;
   margin-bottom: 20px;
 }
-
 </style>
