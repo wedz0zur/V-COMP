@@ -30,12 +30,12 @@
             <p v-if="userEmail" class="user-info-2">{{ userEmail }}</p>
             <p v-else class="user-info-2">Не указано</p>
           </div>
-          <!-- Кнопка выхода -->
+          
           <button class="logout-btn" @click="showLogoutModal = true">Выйти из аккаунта</button>
         </div>
       </div>
   
-      <!-- Модальное окно для подтверждения выхода -->
+      
       <div v-if="showLogoutModal" class="modal-overlay" @click="showLogoutModal = false">
         <div class="modal-content" @click.stop>
           <button class="modal-close" @click="showLogoutModal = false">✖</button>
@@ -74,7 +74,7 @@
         }
       },
       logout() {
-        localStorage.setItem('isLoggedIn', 'false'); // Устанавливаем флаг выхода
+        localStorage.setItem('isLoggedIn', 'false'); 
         this.showLogoutModal = false;
         this.$router.push({ name: "home" });
       },
