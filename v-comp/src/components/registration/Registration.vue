@@ -52,9 +52,9 @@
         Регистрируясь, вы соглашаетесь с
         <a href="#">пользовательским соглашением</a>
       </p>
-      <button type="submit" @click="validateForm">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+      <button type="submit" @click="validateForm()">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       <p class="login-link">
-        Уже есть аккаунт? <router-link to="/login">Войти</router-link>
+        Уже есть аккаунт? <a href="#" @click.prevent="$emit('switch-to-login')">Войти</a>
       </p>
     </div>
   </div>
@@ -84,11 +84,11 @@ export default {
       this.lastNameError = '';
       this.emailError = '';
 
-      if (!this.login) {
-        this.emailError = 'email вводить обязательно.';
+      if (!this.email) {
+        this.emailError = 'Email вводить обязательно.';
       }
       if (!this.name) {
-        this.nameError = 'Имя вводить обязателен.';
+        this.nameError = 'Имя вводить обязательно.';
       }
       if (!this.lastName) {
         this.lastNameError = 'Фамилию вводить обязательно.';
@@ -96,31 +96,30 @@ export default {
       if (!this.phone) {
         this.phoneError = 'Номер телефона обязателен.';
       }
-
       if (!this.password) {
         this.passwordError = 'Пароль обязателен.';
       } else if (this.password.length < 6) {
         this.passwordError = 'Пароль должен быть не менее 6 символов.';
       }
 
-      if (!this.phoneError && !this.passwordError) {
+      if (!this.phoneError && !this.passwordError && !this.emailError && !this.nameError && !this.lastNameError) {
         this.registerUser();
       }
     },
     registerUser() {
       console.log('Регистрация прошла успешно');
       const newUser = {
-        phone: this.phone,
-        password: this.password,
-        name: this.name,
-        lastName: this.lastName,
-        email: this.email
+        userPhone: this.phone,
+        userPassword: this.password,
+        userName: this.name,
+        userLastName: this.lastName,
+        userEmail: this.email
       };
-      const usersJson = JSON.stringify(newUser);
-      localStorage.setItem('users', usersJson);
-      this.$router.push('/home');
-    }
-  }
+      localStorage.setItem('users', JSON.stringify(newUser));
+      localStorage.setItem('isLoggedIn', 'true'); 
+      this.$emit('register-success');
+    },
+  },
 };
 </script>
 
@@ -129,7 +128,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 480px;
   background-color: #f5f5f5;
   padding: 20px;
 }

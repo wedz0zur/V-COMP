@@ -2,86 +2,6 @@
   <header class="fixed-header">
     <div class="header_nav_prof">
       <div class="header-nav">
-        <div style="padding: 30px; margin-left: -80px">
-          <transition name="slide">
-            <section v-if="menu" class="burger-menu">
-              <div class="logo">
-                <router-link :to="{ name: 'home' }"><img class="footer_img" src="../footer/footer_img/footer-img.svg"
-                    alt="" /></router-link>
-                <button @click="menu = false" class="close-button">✖</button>
-              </div>
-              <div class="menu-header">
-                <router-link to="/login">Войти</router-link>
-                <span style="margin-top: 5px">|</span>
-                <router-link style="margin-top: 3px" to="/registration">Регистрация</router-link>
-              </div>
-
-              <div class="menu-content">
-                <h3 style="
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 16px;
-                  ">
-                  Информация
-                  <span @click="toggleSubmenu('list1')" class="arrow">{{
-                    list1 ? "🡩" : "🡫"
-                  }}</span>
-                </h3>
-                <div v-if="list1" class="submenu">
-                  <a class="aw" href="#">Акции</a>
-                  <a class="aw" href="#">Кредит</a>
-                  <a class="aw" href="#">Оплата и доставка</a>
-                  <a class="aw" href="#">Гарантия</a>
-                  <a class="aw" href="#">Частые вопросы</a>
-                  <a class="aw" href="#">Новости</a>
-                  <a class="aw" href="#">Блог</a>
-                  <a class="aw" href="#">О нас</a>
-                  <a class="aw" href="#">Политика конфиденциальности</a>
-                  <a class="aw" href="#">Контакты</a>
-                </div>
-
-                <h3 style="
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 16px;
-                  ">
-                  Наши сервисы
-                  <span @click="toggleSubmenu('list2')" class="arrow">{{
-                    list2 ? "🡩" : "🡫"
-                  }}</span>
-                </h3>
-                <div v-if="list2" class="submenu">
-                  <a class="aw" href="#">Сервисный центр v-comp</a>
-                  <a class="aw" href="#">Магазин Б/У товара</a>
-                  <a class="aw" href="#">Скупка Б/У</a>
-                  <a class="aw" href="#">Ремонт ПК и оргтехники</a>
-                  <a class="aw" href="#">Компьютерная помощь</a>
-                  <a class="aw" href="#">Сотрудничество</a>
-                  <a class="aw" href="#">Главная</a>
-                </div>
-                <h3 style="margin-bottom: 16px">Контакты</h3>
-                <p class="pw">(067) 11-12-485 - Отдел продаж</p>
-                <p class="pw">(066) 484-39-22 - Отдел продаж</p>
-                <p class="pw">Днепр, Европейская, 8 (бывшая Миронова 8)</p>
-                <p class="pw">Понедельник-Пятница 9:00-19:00</p>
-                <p class="pw">Суббота-Воскресенье: с 9:00-16:00</p>
-              </div>
-              <h3>Следите за нами</h3>
-              <div class="icons">
-                <div class="icon1"></div>
-                <div class="icon2"></div>
-                <div class="icon3"></div>
-                <div class="icon4"></div>
-              </div>
-            </section>
-          </transition>
-        </div>
-        <div class="burger" @click="menu = !menu">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-
         <a href="#">Акции</a>
         <a href="#">Кредит</a>
         <a href="#">Оплата и доставка</a>
@@ -89,12 +9,17 @@
         <a href="#">Скупка Б/У</a>
         <a href="#">Контакты</a>
       </div>
-      <div class="profile-info">
-        <span v-if="userName" class="user-phone">{{ userName }}</span>
-        <router-link :to="{ name: 'personal' }">
-          <img class="profile" src="./Header_img/Shape.svg" alt="" />
-        </router-link>
-
+      <div class="profile-info" style="display: flex;">
+        <span v-if="userName" class="user-name">{{ userName }}</span>
+        <div style="color: white; width: 26px; height: 26px; background-color: #FFF; border-radius: 50px; display: flex; justify-content: space-between; align-items: center; ">
+          <img
+          class="profile"
+          src="./Header_img/Shape.svg"
+          alt="Profile"
+          @click="handleProfileClick"
+        />
+        </div>
+        
       </div>
     </div>
     <div class="header_search">
@@ -110,94 +35,225 @@
 
       <div class="input-group">
         <div class="form-outline" data-mdb-input-init>
-          <input type="search" v-model="this.store.input" id="form1" class="form-control" />
+          <input
+            type="search"
+            v-model="this.store.input"
+            id="form1"
+            class="form-control"
+          />
           <label class="form-label" for="form1">Поиск</label>
         </div>
         <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-          <i class="fas fa-search"><img src="./Header_img/vector.svg" alt="" /></i>
+          <i class="fas fa-search">
+            <img src="./Header_img/vector.svg" alt="" />
+          </i>
         </button>
       </div>
       <div class="header-last">
         <router-link :to="{ name: 'favourites' }">
           <div class="favourites">
-            <span v-if="favouritesCount > 0" class="favourites-count">{{ favouritesCount }}</span>
+            <span v-if="favouritesCount > 0" class="favourites-count">{{
+              favouritesCount
+            }}</span>
           </div>
         </router-link>
         <router-link :to="{ name: 'basket' }">
           <div class="basket">
-            <span v-if="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+            <span v-if="cartItemCount > 0" class="cart-count">{{
+              cartItemCount
+            }}</span>
           </div>
         </router-link>
+      </div>
+    </div>
+
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="modal-close" @click="closeModal">✖</button>
+        <div class="modal-tabs">
+          <button
+            :class="{ active: modalType === 'login' }"
+            @click="modalType = 'login'"
+          >
+            Вход
+          </button>
+          <button
+            :class="{ active: modalType === 'register' }"
+            @click="modalType = 'register'"
+          >
+            Регистрация
+          </button>
+        </div>
+        <Login
+          v-if="modalType === 'login'"
+          @login-success="handleLoginSuccess"
+          @switch-to-register="switchToRegister"
+        />
+        <Registration
+          v-if="modalType === 'register'"
+          @register-success="handleRegisterSuccess"
+          @switch-to-login="switchToLogin"
+        />
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import { useCartStore } from '@/store/cartStore.js';
-import { useCatalogStore } from '@/store/store';
-import { mapState } from 'pinia';
+import { useCartStore } from "@/store/cartStore.js";
+import { useCatalogStore } from "@/store/store";
+import { mapState } from "pinia";
 import { Input, Ripple, initMDB } from "mdb-ui-kit";
 import "mdb-ui-kit/css/mdb.min.css";
 import "mdb-ui-kit/js/mdb.es.min.js";
+import Login from "../registration/Login.vue";
+import Registration from "../registration/Registration.vue";
 
 export default {
   name: "header",
+  components: { Login, Registration },
   data() {
     return {
       userName: null,
-      menu: false,
-      list1: false,
-      list2: false,
       store: useCatalogStore(),
+      showModal: false,
+      modalType: "login",
     };
   },
   computed: {
-    ...mapState(useCartStore, ['favourites', 'cart']),
-    ...mapState(useCatalogStore, ["filterProducts", "loading", "error", "input"]),
-
+    ...mapState(useCartStore, ["favourites", "cart"]),
+    ...mapState(useCatalogStore, [
+      "filterProducts",
+      "loading",
+      "error",
+      "input",
+    ]),
     favouritesCount() {
       return this.favourites.length;
     },
     cartItemCount() {
       return this.cart.reduce((sum, item) => sum + item.quantity, 0);
     },
+    isAuthenticated() {
+      return localStorage.getItem("isLoggedIn") === "true";
+    },
+  },
+  watch: {
+    isAuthenticated(newVal) {
+      if (newVal) {
+        this.loadUserData();
+      } else {
+        this.userName = null;
+      }
+    },
   },
   mounted() {
     initMDB({ Input, Ripple });
-    this.loadUserData();
+    if (this.isAuthenticated) {
+      this.loadUserData();
+    }
   },
   methods: {
     loadUserData() {
       const userData = JSON.parse(localStorage.getItem("users"));
-      if (userData && userData.phone) {
-        this.userName = userData.name;
+      if (userData && userData.userPhone) {
+        this.userName = userData.userName;
+      } else {
+        this.userName = null;
       }
     },
-    toggleSubmenu(list) {
-      if (list === "list1") {
-        this.list1 = !this.list1;
-      } else if (list === "list2") {
-        this.list2 = !this.list2;
+    handleProfileClick() {
+      if (this.isAuthenticated) {
+        this.$router.push({ name: "personal" }); 
+      } else {
+        this.showModal = true;
+        this.modalType = "login"; 
       }
+    },
+    closeModal() {
+      this.showModal = false;
+    },
+    handleLoginSuccess() {
+      this.loadUserData();
+      this.closeModal();
+    },
+    handleRegisterSuccess() {
+      this.loadUserData();
+      this.closeModal();
+    },
+    switchToLogin() {
+      this.modalType = "login";
+    },
+    switchToRegister() {
+      this.modalType = "register";
     },
   },
 };
 </script>
-
-
 <style scoped>
 header {
   box-shadow: 2px 2px 4px rgba(16, 16, 15, 0.3);
-
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: 780px;
+  width: 600px;
+  max-width: 90%;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.modal-tabs button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-tabs button.active {
+  border-bottom: 2px solid #007bff;
+  font-weight: bold;
+}
+
 
 .cart-count {
   padding-top: 3px;
   position: relative;
   top: -5px;
   right: -30px;
-  background-color: #06A56C;
+  background-color: #06a56c;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -214,7 +270,7 @@ header {
   position: relative;
   top: -5px;
   right: -30px;
-  background-color: #FFCD1B;
+  background-color: #ffcd1b;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -226,11 +282,13 @@ header {
   font-weight: bold;
 }
 
-
-.user-phone {
+.user-name {
+  position: relative;
   font-family: "IBM Plex Mono", monospace;
+  top: 8px;
+  right: 5px;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 12px;
   letter-spacing: 0%;
   color: #f4f8fb;
@@ -277,8 +335,9 @@ header {
 }
 
 .profile {
-  width: 24;
-  height: 24;
+  margin-left: -2px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 

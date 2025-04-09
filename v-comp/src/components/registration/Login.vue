@@ -18,7 +18,7 @@
       <button type="submit" @click="validateForm">ВОЙТИ</button>
       <p class="register-link">
         Нет аккаунта?
-        <router-link to="/registration">Зарегистрироваться</router-link>
+        <a href="#" @click.prevent="$emit('switch-to-register')">Зарегистрироваться</a>
       </p>
     </div>
   </div>
@@ -51,15 +51,14 @@ export default {
         this.loginUser();
       }
     },
-
     loginUser() {
       const storedUser = localStorage.getItem("users");
 
       if (storedUser) {
         const user = JSON.parse(storedUser);
-        if (user.phone === this.phone && user.password === this.password) {
-          alert("Вход выполнен успешно!");
-          this.$router.push("/home");
+        if (user.userPhone === this.phone && user.userPassword === this.password) {
+          localStorage.setItem('isLoggedIn', 'true'); 
+          this.$emit('login-success');
         } else {
           this.passwordError = "Неверный номер телефона или пароль.";
         }
@@ -76,7 +75,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 672px;
   background-color: #f5f5f5;
   padding: 20px;
 }

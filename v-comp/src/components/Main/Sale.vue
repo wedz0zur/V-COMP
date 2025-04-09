@@ -12,7 +12,7 @@
           <router-link :to="{ name: 'catalog' }"><button class="sale-buy">Перейти в каталог</button></router-link>
         </div>
       </div>
-      <a href="#" class="main-products">Смотреть все товары ></a>
+      <router-link :to="{ name: 'catalog' }" class="main-products">Смотреть все товары ></router-link>
     </div>
   </section>
 </template>
@@ -64,49 +64,7 @@ export default {
           image: "src/components/Main/Main_img/sale-7.svg",
           reviews: 5,
           price: 3400,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-3.svg",
-          reviews: 0,
-          price: 7800,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-7.svg",
-          reviews: 4,
-          price: 7400,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-5.svg",
-          reviews: 6,
-          price: 7000,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-6.svg",
-          reviews: 2,
-          price: 6200,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-2.svg",
-          reviews: 1,
-          price: 5600,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-1.svg",
-          reviews: 7,
-          price: 13500,
-        },
-        {
-          name: 'Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)',
-          image: "src/components/Main/Main_img/sale-4.svg",
-          reviews: 5,
-          price: 3400,
-        },
+        }
       ],
     };
   },
@@ -120,7 +78,7 @@ section{
 }
 
 .top-sales {
-  height: 780px;
+  height: 400px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -200,11 +158,12 @@ section{
   text-decoration: none;
   color: #01579b;
   font-family: "IBM Plex Mono", monospace;
+  width: 400px;
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
   letter-spacing: 2%;
-  margin-left: 89%;
+  margin-left: 88%;
   margin-top: 10px;
 }
 </style>

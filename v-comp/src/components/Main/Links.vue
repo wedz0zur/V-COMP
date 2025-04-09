@@ -562,6 +562,5 @@ gap: 15px;
 .store-accessories{
     width: 60%;
     margin-left: 20%;
-    height: 612px;
 }
 </style>

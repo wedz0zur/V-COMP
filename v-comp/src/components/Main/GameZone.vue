@@ -17,7 +17,7 @@
           <router-link :to="{ name: 'catalog' }"><button class="sale-buy">Перейти в каталог</button></router-link> 
         </div>
       </div>
-      <a href="#" class="main-products">Смотреть все товары ></a>
+      <router-link :to="{ name: 'catalog' }" class="main-products">Смотреть все товары ></router-link>
     </div>
     <h2 style="font-family: Lato; color: #fff">Категории для геймеров</h2>
     <div class="categories">
@@ -214,7 +214,7 @@ export default {
   font-size: 14px;
   line-height: 14px;
   letter-spacing: 2%;
-  margin-left: 89%;
+  margin-left: 88%;
   margin-top: 10px;
 }
 .top-sales {
