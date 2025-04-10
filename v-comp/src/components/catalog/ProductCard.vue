@@ -1,6 +1,6 @@
 <template>
   <div class="product-card">
-    <div style="height: 320px">
+    <div style="height: 270px">
       <div
         class="heart"
         @click="toggleFavourite"
@@ -111,17 +111,16 @@ export default {
 
 .info-btn {
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 12px;
   letter-spacing: 0%;
-
   background-color: #55a0f0;
   color: white;
   border: none;
-  padding: 5px;
   cursor: pointer;
   border-radius: 4px;
-  width: 100%;
+  width: 120px;
+  height: 25px;
 }
 
 .info-btn:hover {
@@ -144,8 +143,6 @@ export default {
   transition: box-shadow 0.3s ease;
 }
 
-.product-card p{
-}
 
 .product-card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -153,7 +150,7 @@ export default {
 
 .product-img {
   width: 218px;
-  height: 214px;
+  height: 180px;
   object-fit: contain;
   pointer-events: none
 }
@@ -187,7 +184,7 @@ export default {
   padding-left: 12px;
   background-color: #06a56c;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 12px;
   letter-spacing: 0%;
   color: #f4f8fb;
@@ -201,8 +198,8 @@ export default {
   background-position: center;
   background-size: cover;
   position: relative;
-  left: 200px;
-  bottom: 5px;
+  left: 195px;
+  bottom: 2px;
 }
 
 .noActive {
