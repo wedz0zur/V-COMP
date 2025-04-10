@@ -158,7 +158,7 @@ export default {
 
 <style scoped>
 .reviews-p_1 {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 600;
     font-size: 28px;
     line-height: 32px;
@@ -204,7 +204,7 @@ export default {
 }
 
 .reting-p_1 {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 900;
     font-size: 48px;
     line-height: 57.6px;
@@ -240,7 +240,7 @@ export default {
 }
 
 .reting-p_2 {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 12px;
     line-height: 12px;
@@ -284,7 +284,7 @@ export default {
 }
 
 .name {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
@@ -300,7 +300,7 @@ export default {
 }
 
 .counter {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 13px;
     line-height: 10px;
@@ -310,7 +310,7 @@ export default {
 }
 
 .comment {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -327,7 +327,7 @@ export default {
 }
 
 .comm-date {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -367,7 +367,7 @@ export default {
 }
 
 .inst-transition {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 14px;
     line-height: 14px;
@@ -377,7 +377,7 @@ export default {
 }
 
 .partners-p2 {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 14px;
     line-height: 14px;
@@ -468,7 +468,7 @@ export default {
 }
 
 .news-p1 {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
@@ -478,7 +478,7 @@ export default {
 }
 
 .news-p2 {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -495,7 +495,7 @@ export default {
 }
 
 .news-date {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 10px;
     line-height: 10px;
@@ -505,7 +505,7 @@ export default {
 }
 
 .news-link {
-  font-family: "IBM Plex Mono", monospace;
+  
     font-weight: 500;
     font-size: 10px;
     line-height: 10px;
@@ -541,7 +541,7 @@ export default {
 }
 
 .store-accessories-p1{
-  font-family: "IBM Plex Mono", monospace;
+  
 font-weight: 600;
 font-size: 32px;
 line-height: 36px;
@@ -550,7 +550,7 @@ color: #000;
 }
 
 .store-accessories-p2{
-  font-family: "IBM Plex Mono", monospace;
+  
 font-weight: 400;
 font-size: 18px;
 line-height: 28px;

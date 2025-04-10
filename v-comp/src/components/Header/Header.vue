@@ -284,7 +284,6 @@ header {
 
 .user-name {
   position: relative;
-  font-family: "IBM Plex Mono", monospace;
   top: 8px;
   right: 5px;
   font-weight: 500;
@@ -312,7 +311,6 @@ header {
 }
 
 .header-nav a {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 16px;
   line-height: 12px;
@@ -364,7 +362,6 @@ header {
   justify-content: space-around;
   border-radius: 4px;
   background-color: #06a56c;
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 14px;
   line-height: 12px;
@@ -402,7 +399,6 @@ header {
 }
 
 h3 {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -411,7 +407,6 @@ h3 {
 }
 
 .aw {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 15px;
   line-height: 16px;
@@ -422,7 +417,6 @@ h3 {
 }
 
 .pw {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 15px;
   line-height: 16px;
@@ -461,7 +455,6 @@ h3 {
 }
 
 .menu-header a {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;

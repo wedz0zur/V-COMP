@@ -35,7 +35,7 @@ section {
 }
 
 .not-found_p1 {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 700;
   font-size: 140px;
   line-height: 140px;
@@ -50,7 +50,7 @@ section {
 .not-found_p2 {
   width: 484px;
   height: 24px;
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -60,7 +60,7 @@ section {
 }
 
 .not-found_p3 {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -86,7 +86,7 @@ button {
 }
 
 button a {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;

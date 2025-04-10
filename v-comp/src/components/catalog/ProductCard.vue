@@ -110,7 +110,6 @@ export default {
 }
 
 .info-btn {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -146,7 +145,6 @@ export default {
 }
 
 .product-card p{
-  font-family: "IBM Plex Mono", monospace;
 }
 
 .product-card:hover {
@@ -161,7 +159,6 @@ export default {
 }
 
 .product-name {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 17px;
   line-height: 16px;
@@ -171,7 +168,6 @@ export default {
 }
 
 .product-price {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
@@ -190,7 +186,6 @@ export default {
   padding-bottom: 4px;
   padding-left: 12px;
   background-color: #06a56c;
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -219,7 +214,6 @@ export default {
 }
 
 .product-rating {
-  font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;

@@ -106,7 +106,7 @@ export default{
   height: 48px;
   display: flex;
   align-items: center;
-  font-family: "IBM Plex Mono", monospace;
+ 
   font-weight: 500;
   font-size: 19px;
   line-height: 20px;
@@ -150,7 +150,7 @@ export default{
 }
 
 .section-1-inf-p {
-  font-family: "IBM Plex Mono", monospace;
+ 
   font-weight: 700;
   font-size: 14px;
   line-height: 12px;

@@ -19,7 +19,7 @@
       </div>
       <router-link :to="{ name: 'catalog' }" class="main-products">Смотреть все товары ></router-link>
     </div>
-    <h2 style="font-family: Lato; color: #fff">Категории для геймеров</h2>
+    <h2 style="color: #fff">Категории для геймеров</h2>
     <div class="categories">
       <div class="categ-container">
         <div class="categ-circle"></div>
@@ -124,7 +124,7 @@ export default {
 }
 
 .gameZone-p1 {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 600;
   font-size: 36px;
   line-height: 40px;
@@ -154,7 +154,7 @@ export default {
 }
 
 .sale-info {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -164,7 +164,6 @@ export default {
 }
 
 .sale-reviews {
-  font-family: Roboto;
   font-weight: 400;
   font-size: 14px;
   line-height: 12.89px;
@@ -173,7 +172,7 @@ export default {
 }
 
 .sale-price {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
@@ -197,7 +196,7 @@ export default {
   padding-left: 12px;
   border-radius: 4px;
   background-color: #06a56c;
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
@@ -209,7 +208,7 @@ export default {
 .main-products {
   text-decoration: none;
   color: #ffffff;
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
@@ -226,7 +225,7 @@ export default {
 }
 
 .categ-p {
-  font-family: "IBM Plex Mono", monospace;
+  
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
