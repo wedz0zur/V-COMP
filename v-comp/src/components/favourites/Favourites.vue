@@ -134,7 +134,7 @@ h1 {
 }
 
 .remove-btn {
-  background-color: #ff4d4d;
+  background-color: #55a0f0;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -148,7 +148,7 @@ h1 {
 }
 
 .remove-btn:hover {
-  background-color: #cc0000;
+  background-color: #0056b3;
 }
 
 .no-favourites {

@@ -134,7 +134,7 @@ section {
 .logout-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #ff4444;
+  background-color: #55a0f0;
   color: white;
   border: none;
   border-radius: 4px;
@@ -143,7 +143,7 @@ section {
 }
 
 .logout-btn:hover {
-  background-color: #cc0000;
+  background-color: #0056b3;
 }
 
 .modal-overlay {
@@ -191,7 +191,7 @@ section {
 
 .confirm-btn {
   padding: 10px 20px;
-  background-color: #ff4444;
+  background-color: #55a0f0;
   color: white;
   border: none;
   border-radius: 4px;
@@ -199,7 +199,7 @@ section {
 }
 
 .confirm-btn:hover {
-  background-color: #cc0000;
+  background-color: #0056b3;
 }
 
 .cancel-btn {

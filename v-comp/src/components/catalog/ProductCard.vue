@@ -1,6 +1,14 @@
 <template>
   <div class="product-card">
-    <div style="height: 270px">
+    <div
+      style="
+        height: 270px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      "
+    >
       <div
         class="heart"
         @click="toggleFavourite"
@@ -10,18 +18,24 @@
       <h2 class="product-name">{{ product.name }}</h2>
     </div>
 
-    <div>
+    <div style="padding: 0 20px;">
       <div
-      style="
+        style="
           display: flex;
           justify-content: space-between;
           align-items: center;
-          "
+          margin-bottom: 15px;
+        "
       >
-      <h2 class="product-rating">{{ product.rating }} ⭐</h2>
-      <div class="info-container">
-        <button class="info-btn" @click=openModal>Подробнее</button>
-        <ProductInfo v-if="modal" :product="product" :modal="modal" @close="modal=false" />
+        <h2 class="product-rating">{{ product.rating }} ⭐</h2>
+        <div class="info-container">
+          <button class="info-btn" @click="openModal">Подробнее</button>
+          <ProductInfo
+            v-if="modal"
+            :product="product"
+            :modal="modal"
+            @close="modal = false"
+          />
         </div>
       </div>
       <div
@@ -35,10 +49,12 @@
 
         <div style="display: flex" v-if="isInCart">
           <button class="counter-btn" @click="removeFromCart(product)">
-            -
+            <p class="counter-btn_k">-</p>
           </button>
           <span class="counter">{{ quantity }}</span>
-          <button class="counter-btn" @click="addToCart(product)">+</button>
+          <button class="counter-btn" @click="addToCart(product)">
+            <p class="counter-btn_k">+</p>
+          </button>
         </div>
 
         <button v-else class="product-btn" @click="addToCart(product)">
@@ -47,7 +63,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -56,11 +71,11 @@ import { mapActions, mapState } from "pinia";
 import ProductInfo from "./ProductInfo.vue";
 
 export default {
-  data(){
-    return{
+  data() {
+    return {
       modal: false,
-      modalClass: 'tooltip',
-    }
+      modalClass: "tooltip",
+    };
   },
   components: {
     ProductInfo,
@@ -82,8 +97,8 @@ export default {
     },
   },
   methods: {
-    openModal(){
-      this.modal = true
+    openModal() {
+      this.modal = true;
     },
     ...mapActions(useCartStore, [
       "addToCart",
@@ -102,7 +117,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .info-container {
   position: relative;
@@ -111,7 +125,7 @@ export default {
 
 .info-btn {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 12px;
   letter-spacing: 0%;
   background-color: #55a0f0;
@@ -120,7 +134,7 @@ export default {
   cursor: pointer;
   border-radius: 4px;
   width: 120px;
-  height: 25px;
+  height: 30px;
 }
 
 .info-btn:hover {
@@ -134,7 +148,8 @@ export default {
 }
 .product-card {
   position: relative;
-  width: 242px;
+  width: 352px;
+  height: 400px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 7px;
@@ -143,21 +158,20 @@ export default {
   transition: box-shadow 0.3s ease;
 }
 
-
 .product-card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product-img {
-  width: 218px;
-  height: 180px;
+  width: 288px;
+  height: 210px;
   object-fit: contain;
-  pointer-events: none
+  pointer-events: none;
 }
 
 .product-name {
   font-weight: 500;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 16px;
   letter-spacing: 0%;
   color: #333333;
@@ -166,7 +180,7 @@ export default {
 
 .product-price {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 20px;
   letter-spacing: 0%;
   color: #e93232;
@@ -174,8 +188,8 @@ export default {
 }
 
 .product-btn {
-  width: 73px;
-  height: 32px;
+  width: 93px;
+  height: 37px;
   gap: 8px;
   border-radius: 4px;
   padding-top: 4px;
@@ -184,7 +198,7 @@ export default {
   padding-left: 12px;
   background-color: #06a56c;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 12px;
   letter-spacing: 0%;
   color: #f4f8fb;
@@ -192,14 +206,15 @@ export default {
 }
 
 .heart {
-  width: 20px;
-  height: 17px;
+  width: 24px;
+  height: 20px;
   cursor: pointer;
   background-position: center;
   background-size: cover;
   position: relative;
-  left: 195px;
+  left: 125px;
   bottom: 2px;
+  z-index: 200;
 }
 
 .noActive {
@@ -212,7 +227,7 @@ export default {
 
 .product-rating {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 23px;
   line-height: 20px;
 }
 
@@ -227,9 +242,6 @@ export default {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -254,11 +266,20 @@ export default {
 }
 
 @keyframes subtleAppear {
-  from { opacity: 0.8; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0.8;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .product-card {
   animation: subtleAppear 0.3s ease-out;
 }
 
+.counter-btn_k {
+  margin-top: -2px;
+}
 </style>

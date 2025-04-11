@@ -8,11 +8,6 @@
                     <div class="comm">
                         <div class="name-counter">
                             <p class="name">Сергей Филимонов</p>
-                            <div class="counter-set">
-                                <div class="left-btn" style="cursor: pointer; color: #01579B;">🡐</div>
-                                <p class="counter">3/6</p>
-                                <div class="right-btn" style="cursor: pointer; color: #01579B;">🡒</div>
-                            </div>
                         </div>
                         <p class="comment">Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
                             перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация
@@ -292,22 +287,6 @@ export default {
     color: #060F42;
 }
 
-.counter-set {
-    width: 70px;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.counter {
-  
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 10px;
-    letter-spacing: 0px;
-    color: #333;
-    margin-top: 7px;
-}
 
 .comment {
   
