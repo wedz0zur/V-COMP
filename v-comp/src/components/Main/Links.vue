@@ -188,6 +188,7 @@ export default {
 }
 
 .user {
+    padding: 5px 0 0 5px;
     width: 452px;
     height: 140px;
 }
