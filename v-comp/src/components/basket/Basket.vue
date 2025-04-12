@@ -1,7 +1,10 @@
 <template>
   <div class="basket">
     <h2 class="basket-title">Корзина</h2>
-
+      <div class="basket-footer">
+        <h3>Итого: {{ totalPrice }}₽</h3>
+        <button class="checkout-btn" @click="checkout">Оформить заказ</button>
+      </div>
     <div v-if="cart.length > 0">
       <div v-for="item in cart" :key="item.id" class="basket-item">
         <img :src="item.image" alt="Товар" class="basket-item-img" />
@@ -20,10 +23,7 @@
         <button class="delete-btn" @click="removeAllFromCart(item)">✖</button>
       </div>
 
-      <div class="basket-footer">
-        <h3>Итого: {{ totalPrice }}₽</h3>
-        <button class="checkout-btn" @click="checkout">Оформить заказ</button>
-      </div>
+      
     </div>
 
     <div v-else class="empty-basket">
